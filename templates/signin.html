@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peprofy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  {{ toastr.include_jquery() }}
+  {{ toastr.include_toastr_css() }}
+  {{ toastr.message() }}
+  <style>
+    /* Login Page Styles */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+      position: relative;
+    }
+
+    .left-panel {
+      flex: 0.95;
+      background-color: #20A596;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .right-panel {
+      flex: 1.05;
+      background-color: #BAE794;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .right-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -15%;
+      width: 25%;
+      height: 100%;
+      background-color: #20A596;
+      transform: skew(-10deg);
+      z-index: 1;
+    }
+
+    .right-panel-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 180px;
+      margin-bottom: 20px;
+      position: relative;
+      top: -12%;
+      left: -3%;
+    }
+
+    .form-container {
+      position: relative;
+      left: 25%;
+      bottom: 8%;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .form-container h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: lighter;
+      position: relative;
+      left: 4%;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 20px;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #fff;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .social-button img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      background-color: #fff;
+    }
+
+    .facebook-button {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      background-color: #1877F2;
+    }
+
+    .facebook-button img {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      margin-right: 10px;
+      background-color: #fff;
+    }
+
+    .login-button {
+      width: 40%;
+      padding: 10px;
+      background-color: #BAE794;
+      color: #000;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      position: relative;
+      left: 33%;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #000;
+    }
+
+    .signup-link a {
+      color: #BAE794;
+      text-decoration: none;
+    }
+
+    .welcome-image {
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .right-panel-content h1 {
+      font-family: 'Poppins', sans-serif;
+      color: #000;
+    }
+
+    .terms {
+      color: #fff;
+      font-size: x-small;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-panel,
+      .right-panel {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .right-panel::before {
+        display: none;
+      }
+
+      .logo {
+        position: static;
+        margin: 0 auto 20px;
+        display: block;
+      }
+
+      .form-container {
+        left: 0;
+        bottom: 0;
+        margin: 0 auto;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-button,
+      .facebook-button {
+        width: 80%;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .login-button {
+        width: 60%;
+        left: 20%;
+      }
+
+      .right-panel-content {
+        margin-top: 20px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .form-container h2 {
+        font-size: 1.2em;
+        text-align: center;
+        left: 0;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        font-size: 14px;
+      }
+
+      .social-button,
+      .facebook-button {
+        width: 100%;
+      }
+
+      .login-button {
+        width: 80%;
+        left: 10%;
+      }
+
+      .right-panel-content h1 {
+        font-size: 1.8em;
+      }
+
+      .welcome-image {
+        max-width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="static\Assets\Logo_Cutout.png" alt="Peprofy Logo" class="logo">
+      <div class="form-container">
+        <h2>Good to see you again!</h2>
+        <div class="social-buttons">
+          <button class="facebook-button">
+            <img src="static\Assets\facebook.png" alt="Facebook Logo">
+            Facebook
+          </button>
+          <button class="social-button">
+            <img src="static\Assets\google.png" alt="Google Logo">Google
+          </button>
+        </div>
+        <form action="/result" method="POST">
+          <input type="email" id="login"  name="email" placeholder="Email" required>
+          <input type="password" id="password"  name="pass" placeholder="Password">
+          <input type="submit" class="login-button" value="Log In">
+        </form>
+        <div class="signup-link">
+          <p>New to Peprofy?  <a href="/signup">Sign Up</a></p>
+        </div>
+        <p class="terms">By creating an account, you agree to Peprofy Terms of services and Privacy Policy</p>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="right-panel-content">
+        <img src=" static\Assets\Lifesavers Telemedicine.png" alt="IMAGE" class="welcome-image">
+        <h1>Welcome!</h1>
+      </div>
+    </div>
+  </div>
+
+  {{ toastr.include_toastr_js() }}
+</body>
+
+</html>

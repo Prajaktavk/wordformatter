@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peprofy - Home and Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static\blog.css" />
+  </head>
+  <body>
+    <div class="home-page">
+      <header class="home-header">
+        <img src="static\Assets\Logo_Cutout.png" alt="Logo" class="logo">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="home-nav">
+          <a href="home">Home</a>
+          <a href="#contact">Contact Us</a>
+          <div class="auth-buttons">
+            <a href="signin" class="login">Log In</a>
+            <a href="signup" class="signup">Sign Up</a>
+          </div>
+        </nav>
+        <div class="menu-overlay" onclick="toggleMenu()"></div>
+      </header>
+
+      <main class="home-main">
+        <div class="home-content">
+          <h1>
+            <span class="peprofy-box">PEPROFY</span><br />
+            Welcome !<br />
+            To our blog section!
+          </h1>
+          <p>
+            Share your thoughts, experiences and tutorials on web development
+            and more
+          </p>
+          <a href="#try-now" class="cta-button">Try now</a>
+        </div>
+      </main>
+
+      <div class="background-items">
+        <img
+          src="static\Assets\NotesBackGround.png"
+          alt="Background"
+        />
+      </div>
+    </div>
+
+    <div class="blog-page">
+      <div class="container">
+        <div id="cardGrid" class="card-grid"></div>
+      </div>
+
+      <div class="subscriptions">
+        <h3>Format your research with ease today</h3>
+        <p>A one stop solution to format your research paper</p>
+        <button>Subscriptions</button>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <img
+            src="static\Assets\Logo_Cutout.png"
+            alt="Peprofy Logo"
+            class="logo"
+          />
+          <div class="footer-links">
+            <div class="footer-column">
+              <p>Connect</p>
+              <p>Facebook</p>
+              <p>LinkedIn</p>
+              <p>Email</p>
+            </div>
+            <div class="footer-column">
+              <p>Contact Us</p>
+              <p>info@paperpublish.com</p>
+              <p>+91 1234567890</p>
+              <p>1234 research Lane, Innovation City</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">2024 © peprofy - Terms & Privacy Policy</div>
+      </footer>
+    </div>
+
+    <div id="cookie-consent-popup">
+      <h2>
+        <img
+          id="cookie-image"
+          src="static\Assets\Cookie.png"
+          alt="Cookie"
+        />
+        Our Website uses cookies
+      </h2>
+      <p>
+        We use cookies and other tracking technologies to improve your browsing
+        experience on our website, to show you personalized content and targeted
+        ads, to analyze our website traffic, and to understand where our
+        visitors are coming from.
+      </p>
+      <p class="privacy-policy">
+        *By agreeing to cookies, you consent to use of cookies in accordance
+        with our Privacy Policy.
+      </p>
+      <div class="buttons">
+      <button id="accept-cookies">Accept All</button>
+      <button id="decline-cookies">Decline All</button>
+      <button id="cookie-settings">Cookie Settings</button>
+    </div>
+    </div>
+
+    <script>
+      // Function to set a cookie
+      function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie =
+          name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/";
+      }
+
+      // Function to get a cookie
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const cookiePopup = document.getElementById("cookie-consent-popup");
+        const acceptButton = document.getElementById("accept-cookies");
+        const declineButton = document.getElementById("decline-cookies");
+        const settingsButton = document.getElementById("cookie-settings");
+
+        // Check if user has already made a choice
+        const cookieConsent = getCookie("cookieConsent");
+        if (!cookieConsent) {
+          cookiePopup.style.display = "block";
+        }
+
+        acceptButton.addEventListener("click", function () {
+          setCookie("cookieConsent", "accepted", 365); // Cookie lasts for a year
+          cookiePopup.style.display = "none";
+          // Here you would typically enable all your cookies and tracking
+        });
+
+        declineButton.addEventListener("click", function () {
+          setCookie("cookieConsent", "declined", 365); // Cookie lasts for a year
+          cookiePopup.style.display = "none";
+          // Here you would typically disable all non-essential cookies and tracking
+        });
+
+        settingsButton.addEventListener("click", function () {
+          // Here you would typically open a more detailed cookie settings menu
+          console.log("Cookie settings clicked");
+        });
+      });
+    </script>
+
+    <script>
+      const cardData = [
+        {
+          title: "Understanding React Components",
+          date: "September 14, 2024",
+          author: "Jerry Spark",
+          content:
+            "React components are the building blocks of any React application. Each component is a reusable piece of UI. Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function...",
+        },
+        {
+          title: "Understanding React Components",
+          date: "September 14, 2024",
+          author: "Jerry Spark",
+          content:
+            "React components are the building blocks of any React application. Each component is a reusable piece of UI. Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function...",
+        },
+        {
+          title: "Understanding React Components",
+          date: "September 14, 2024",
+          author: "Jerry Spark",
+          content:
+            "React components are the building blocks of any React application. Each component is a reusable piece of UI. Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function...",
+        },
+        {
+          title: "Understanding React Components",
+          date: "September 14, 2024",
+          author: "Jerry Spark",
+          content:
+            "React components are the building blocks of any React application. Each component is a reusable piece of UI. Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function...",
+        },
+      ];
+
+      function createCard(data) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+                <h2>${data.title}</h2>
+                <p class="meta">Published on: ${data.date} | By ${data.author}</p>
+                <div class="content">${data.content}</div>
+                <button class="read-more">Read More  →</button>
+            `;
+        return card;
+      }
+
+      const cardGrid = document.getElementById("cardGrid");
+      cardData.forEach((data) => {
+        const card = createCard(data);
+        cardGrid.appendChild(card);
+      });
+
+      document.querySelectorAll(".read-more").forEach((button) => {
+        button.addEventListener("click", function () {
+          const card = this.closest(".card");
+          card.classList.toggle("expanded");
+          this.textContent = card.classList.contains("expanded")
+            ? "Read Less"
+            : "Read More";
+        });
+      });
+    </script>
+       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.home-nav');
+            const authButtons = document.querySelector('.auth-buttons');
+  
+            mobileMenuBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
+                authButtons.classList.toggle('active');
+            });
+  
+            document.addEventListener('click', function(event) {
+                const isClickInside = nav.contains(event.target) || 
+                                    mobileMenuBtn.contains(event.target) ||
+                                    authButtons.contains(event.target);
+  
+                if (!isClickInside) {
+                    nav.classList.remove('active');
+                    authButtons.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+  
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('active');
+                    authButtons.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

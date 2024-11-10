@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peprofy - Paper Publishing Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static\styles.css" />
+    {{ toastr.include_jquery() }}
+  {{ toastr.include_toastr_css() }}
+  {{ toastr.message() }}
+</head>
+
+<body>
+  
+  <div class="home-page">
+    <header class="home-header">
+      <img src="static\Assets\Logo_Cutout.png" alt="Logo" class="logo">
+      <button class="mobile-menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="home-nav">
+        <a href="#contact">Contact Us</a>
+        <a href="blog">Blog</a>
+        <div class="auth-buttons">
+          <a href="signin" class="login">Log In</a>
+          <a href="signup" class="signup">Sign Up</a>
+        </div>
+      </nav>
+      <div class="menu-overlay" onclick="toggleMenu()"></div>
+    </header>
+
+
+    <div class="homepage">
+      <div class="row-section">
+        
+      <img src="static\Assets\degreeCap.png" alt="Degree Cap">
+  
+      <div class="peprofy-box">PEPROFY</div><br />
+      
+      <h1>Welcome! <br> To our paper<br> publishing platform</h1>
+    </div> 
+      <div class="homepage-buttons">
+          <a class="try-btn" href="#">Try Now</a>
+          <button class="drag-btn">Drag me</button>
+      </div>
+  </div>
+
+
+    <div class="background-items">
+      <img
+        src="static\Assets\NotesBackGround.png"
+        alt="Background"
+      />
+    </div>
+  </div>
+
+    <div class="info">
+        <h1>
+            <span>What we provide</span>
+            <img src="static\Assets\Pen.png" alt="pen" class="pen-image">
+        </h1>
+
+        <ul class="list">
+            <li>Our platform offers researchers and professionals an efficient way to publish and share
+                their<br>scholarly papers. We aim to simplify the publishing process, ensuring your research reaches
+                the<br>right audience</li>
+            <li>Whether you are submitting new work or searching for publications, we have it all.<br> Our platform
+                connects authors with the scientific community, offering peer review and academic<br>resources to help
+                disseminate quality research</li>
+        </ul>
+    
+    </div>
+    
+    <div class="container">
+        <div class="main">
+          <div class="background-elements">
+              <div
+              class="background-element"
+              style="width: 7vw; height: 3vw; top: 20%; left: 0%"
+            ></div>
+            <div
+              class="background-element"
+              style="width: 10vw; height: 3vw; top: 3%; left: 10%"
+            ></div>
+            <div
+              class="background-element"
+              style="width: 7vw; height: 3vw; top: 0%; left: 38%"
+            ></div>
+            <div
+              class="background-element"
+              style="width: 7vw; height: 3vw; top: 4%; right: 22%"
+            ></div>
+            <div
+              class="background-element"
+              style="width: 10vw; height: 3vw; top: 20%; right: 0%"
+            ></div>
+          </div>
+  
+          <h2>Get started with your Paper</h2>
+          <div class="plans">
+            <div class="plan">
+              <h3>Basic Plan</h3>
+              <p class="price">₹499</p>
+              <div class="discount">
+                <img
+                  src="static\Assets\tag.png"
+                  alt="Tag icon"
+                  class="tag-icon"
+                />
+                Get up to 40% off. Use code: student40
+              </div>
+              <button class="btn">Subscribe</button>
+              <ul class="feature-list">
+                <li class="feature-item">
+                  <img
+                    src="static\Assets\star.png"
+                    alt="Star icon"
+                    class="feature-icon"
+                  />
+                  <span>Format your data into research paper and get citation</span>
+                </li>
+                <li class="features">
+                  <img
+                    src="static\Assets\tick.png"
+                    alt="Check icon"
+                    class="feature-icon"
+                  />
+                  <span>1st Benefit of plan 1</span>
+                </li>
+                <li class="features">
+                  <img
+                    src="static\Assets\tick.png"
+                    alt="Check icon"
+                    class="feature-icon"
+                  />
+                  <span>2nd Benefit of plan 1</span>
+                </li>
+                <li class="features">
+                  <img
+                    src="static\Assets\tick.png"
+                    alt="Check icon"
+                    class="feature-icon"
+                  />
+                  <span>3rd Benefit of plan 1</span>
+                </li>
+              </ul>
+            </div>
+            <div class="plan">
+              <h3>Premium Plan</h3>
+              <p class="price">₹999</p>
+              <div class="discount">
+                <img
+                  src="static\Assets\tag.png"
+                  alt="Tag icon"
+                  class="tag-icon"
+                />
+                Get up to 40% off. Use code: student40
+              </div>
+              <button class="btn">Subscribe</button>
+              <ul class="feature-list">
+                <li class="feature-item">
+                  <img
+                    src="static\Assets\star.png"
+                    alt="Star icon"
+                    class="feature-icon"
+                  />
+                  <span>Format your data into research paper and get citation</span>
+                </li>
+                <li class="features">
+                  <img
+                    src="static\Assets\tick.png"
+                    alt="Check icon"
+                    class="feature-icon"
+                  />
+                  <span>1st Benefit of plan 1</span>
+                </li>
+                <li class="features">
+                  <img
+                    src="static\Assets\tick.png"
+                    alt="Check icon"
+                    class="feature-icon"
+                  />
+                  <span>2nd Benefit of plan 1</span>
+                </li>
+                <li class="features">
+                  <img
+                    src="static\Assets\tick.png"
+                    alt="Check icon"
+                    class="feature-icon"
+                  />
+                  <span>3rd Benefit of plan 1</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rating-flex">
+        
+            <div class="stat">
+              <h3>1000+</h3>
+              <p>Students Enrolled</p>
+            </div>
+            <div class="stat">
+              <h3>4.9/5</h3>
+              <p>Play Store Rating</p>
+            </div>
+            <div class="stat">
+              <h3>Certificate of Completion</h3>
+            </div>
+            <div class="stat">
+              <h3>Lifetime access</h3>
+            </div>
+          
+    </div>
+    
+    <div class="subscription">
+        <h3>Format your research with ease today</h3>
+        <p>A one stop solution to format your research paper</p>
+        <button>Subscriptions</button>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <img
+          src="static\Assets\Logo_Cutout.png"
+          alt="Peprofy Logo"
+          class="logo"
+        />
+        <div class="footer-links">
+          <div class="footer-column">
+            <p>Connect</p>
+            <p>Facebook</p>
+            <p>LinkedIn</p>
+            <p>Email</p>
+          </div>
+          <div class="footer-column">
+            <p>Contact Us</p>
+            <p>info@paperpublish.com</p>
+            <p>+91 1234567890</p>
+            <p>1234 research Lane, Innovation City</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">2024 © peprofy - Terms & Privacy Policy</div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.home-nav');
+    const authButtons = document.querySelector('.auth-buttons');
+    const overlay = document.querySelector('.menu-overlay');
+
+    menuBtn.addEventListener('click', function() {
+        menuBtn.classList.toggle('active');
+        nav.classList.toggle('active');
+        authButtons.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    overlay.addEventListener('click', function() {
+        menuBtn.classList.remove('active');
+        nav.classList.remove('active');
+        authButtons.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
+  </script>
+  {{ toastr.include_toastr_js() }}
+</body>
+
+</html>
